@@ -1,619 +1,988 @@
-🧠 LLM From Zero
+# 🧠 LLM From Zero
 
-«Understand how a Large Language Model is built — from raw text to a complete Transformer-based LLM.»
+### Understand How a Large Language Model Is Built
 
-🚧 Current Status: Theoretical Only
-💻 Implementation / Coding: Coming Soon
+> **From raw text to a complete Transformer-based LLM**
+
+**📚 Current Status:** Theory Only
+**💻 Implementation:** Coming Soon
 
 ---
 
-🌟 About This Repository
+## 🌟 About This Repository
 
-LLM From Zero is a step-by-step theoretical guide to understanding how a modern Large Language Model (LLM) is constructed, trained, and used to generate text.
+**LLM From Zero** is a step-by-step learning repository designed to explain how a modern Transformer-based Large Language Model is constructed, trained, and used for text generation.
 
-This repository does not begin with code.
+This repository does not begin with implementation.
 
-Instead, it follows the actual conceptual journey of building an LLM:
+It begins with understanding.
 
+The learning journey gradually moves from the basic idea of an LLM to tokenization, architecture, Transformers, decoder-only models, training, inference, and finally the complete LLM pipeline.
+
+### 🎯 The Core Goal
+
+By the end of this repository, you should be able to look at a Transformer-based LLM and understand **what is happening at every major stage**.
+
+---
+
+# 🗺️ Learning Journey
+
+```text
 📚 Understand LLMs
-       ↓
+        │
+        ▼
 📝 Understand Text & Tokenization
-       ↓
+        │
+        ▼
+🔢 Understand Token IDs
+        │
+        ▼
 🏗️ Understand LLM Architecture
-       ↓
-🤖 Understand Transformer
-       ↓
-🧩 Build the Decoder-Only Transformer Architecture
-       ↓
-🎓 Understand LLM Training
-       ↓
-✨ Understand Text Generation
-       ↓
+        │
+        ▼
+🤖 Understand Transformers
+        │
+        ▼
+🧩 Build a Decoder-Only Transformer
+        │
+        ▼
+🎓 Train the LLM
+        │
+        ▼
+✨ Generate Text
+        │
+        ▼
 🧠 Understand the Complete LLM
-
-The goal is simple:
-
-«By the end of this repository, you should be able to look at a Transformer-based LLM and understand what is happening at every major stage.»
+```
 
 ---
 
-🎯 Goal of the Repository
+# 🎯 Goal of the Repository
 
-The main goal is to understand how an LLM is actually built, rather than simply learning how to use an existing model.
+The goal is not simply to learn how to **use** an existing LLM.
+
+The goal is to understand how an LLM is **constructed internally**.
 
 This repository focuses on:
 
-- 🧠 Understanding what an LLM actually is
-- 📝 Understanding how text enters an LLM
-- 🔤 Understanding tokenization
-- 🏗️ Understanding the internal architecture of an LLM
-- 🤖 Understanding the Transformer architecture
-- 🧩 Understanding how Transformer is used to create a decoder-only LLM
-- 🎓 Understanding how an LLM is trained
-- ✨ Understanding how an LLM generates text
-- 🔄 Understanding the complete flow from input to output
+* 🧠 Understanding what an LLM actually is
+* 📝 Understanding how text enters an LLM
+* 🔤 Understanding tokenization
+* 🔢 Understanding token IDs and representations
+* 🏗️ Understanding LLM architecture
+* 👀 Understanding attention
+* 🤖 Understanding the Transformer
+* 🧩 Understanding decoder-only architecture
+* 🎓 Understanding how an LLM is trained
+* ✨ Understanding how an LLM generates text
+* 🔄 Understanding the complete flow from input to output
 
 ---
 
-📚 Repository Structure
+# 📁 Repository Structure
 
-LLM-From-Zero/
+The repository is divided into eight major learning stages.
+
+```text
+🧠 LLM-From-Zero/
 │
 ├── 📁 01-Introduction-to-LLMs/
+│   ├── 📄 README.md
+│   ├── 🧠 What-is-an-LLM.md
+│   ├── 📚 What-is-a-Language-Model.md
+│   ├── ❓ Why-LLMs.md
+│   ├── 🆚 LLM-vs-Traditional-Language-Models.md
+│   ├── 🆚 LLM-vs-NLP.md
+│   ├── 🆚 LLM-vs-Generative-AI.md
+│   ├── 🆚 LLM-vs-Chatbot.md
+│   ├── 📏 Small-vs-Large-Language-Models.md
+│   ├── 🏛️ Foundation-Models.md
+│   ├── 🤖 What-is-GPT.md
+│   ├── ⚡ LLM-Capabilities.md
+│   └── ⚠️ LLM-Limitations.md
 │
 ├── 📁 02-Text-and-Tokenization/
+│   ├── 📄 README.md
+│   ├── 📝 How-LLMs-Process-Text.md
+│   ├── 📚 Vocabulary.md
+│   ├── 🔤 What-is-a-Token.md
+│   ├── ✂️ Tokenization.md
+│   ├── 🔡 Character-Level-Tokenization.md
+│   ├── 📝 Word-Level-Tokenization.md
+│   ├── 🧩 Subword-Tokenization.md
+│   ├── ⚙️ Byte-Pair-Encoding.md
+│   ├── 🔢 Token-IDs.md
+│   ├── 🏷️ Special-Tokens.md
+│   ├── 📏 Sequence.md
+│   ├── 🪟 Context-Window.md
+│   └── 🔄 Text-to-Model-Input.md
 │
 ├── 📁 03-LLM-Architecture/
+│   ├── 📄 README.md
+│   ├── 🧠 Inside-an-LLM.md
+│   ├── 📥 Input-Representation.md
+│   ├── 🔢 Token-Embeddings.md
+│   ├── 📍 Positional-Information.md
+│   ├── 🧩 Transformer-Blocks.md
+│   ├── 👀 Attention.md
+│   ├── 🧠 Feed-Forward-Network.md
+│   ├── 📤 Output-Layer.md
+│   └── 🏗️ LLM-Architecture-Overview.md
 │
 ├── 📁 04-Transformer/
+│   ├── 📄 README.md
+│   ├── ❓ Why-Transformers.md
+│   ├── 🏗️ Transformer-Architecture.md
+│   ├── 👀 Attention-Mechanism.md
+│   ├── 🔍 Self-Attention.md
+│   ├── 🔑 Query-Key-Value.md
+│   ├── 🎯 Attention-Scores.md
+│   ├── 🎭 Attention-Masking.md
+│   ├── 🧠 Multi-Head-Attention.md
+│   ├── 📍 Positional-Information.md
+│   ├── 🧮 Feed-Forward-Network.md
+│   ├── ➕ Residual-Connections.md
+│   ├── 📏 Layer-Normalization.md
+│   ├── 🧩 Transformer-Block.md
+│   ├── 📥 Encoder.md
+│   ├── 📤 Decoder.md
+│   ├── 🔄 Encoder-Decoder-Architecture.md
+│   └── 🏗️ Complete-Transformer.md
 │
 ├── 📁 05-Decoder-Only-Transformer/
+│   ├── 📄 README.md
+│   ├── 🆚 Encoder-vs-Decoder.md
+│   ├── ❓ Why-Decoder-Only.md
+│   ├── 👀 Causal-Self-Attention.md
+│   ├── 🎭 Causal-Masking.md
+│   ├── 🧩 Decoder-Only-Architecture.md
+│   ├── 🏗️ Transformer-Block-in-LLM.md
+│   ├── 🔄 Stacking-Transformer-Blocks.md
+│   ├── 📤 Final-Output.md
+│   ├── 🧠 Language-Modeling-Head.md
+│   └── 🤖 GPT-Style-Architecture.md
 │
 ├── 📁 06-Training-an-LLM/
+│   ├── 📄 README.md
+│   ├── 🧠 What-Does-an-LLM-Learn.md
+│   ├── 📚 Training-Data.md
+│   ├── 🧹 Data-Preparation.md
+│   ├── 🔤 Training-Data-Tokenization.md
+│   ├── 🧩 Training-Sequences.md
+│   ├── ↔️ Input-and-Target.md
+│   ├── 🎯 Next-Token-Prediction.md
+│   ├── ▶️ Forward-Pass.md
+│   ├── 📉 Loss.md
+│   ├── 🔄 Backpropagation.md
+│   ├── ⚙️ Optimizer.md
+│   ├── 🔧 Parameter-Updates.md
+│   ├── 📦 Batches.md
+│   ├── 🔁 Training-Iterations.md
+│   ├── 📊 Validation.md
+│   └── 🏁 Complete-Training-Process.md
 │
 ├── 📁 07-Text-Generation/
+│   ├── 📄 README.md
+│   ├── 🚀 Inference.md
+│   ├── 📝 Prompt-to-Tokens.md
+│   ├── 🧠 Forward-Pass-During-Inference.md
+│   ├── 📊 Logits.md
+│   ├── 🎯 Probability-Distribution.md
+│   ├── 🔮 Next-Token-Prediction.md
+│   ├── 🔄 Autoregressive-Generation.md
+│   ├── 🥇 Greedy-Decoding.md
+│   ├── 🌡️ Temperature.md
+│   ├── 🔝 Top-K-Sampling.md
+│   ├── 🫧 Top-P-Sampling.md
+│   ├── 🛑 Stopping-Generation.md
+│   └── ✨ Complete-Generation-Process.md
 │
 ├── 📁 08-Complete-LLM/
+│   ├── 📄 README.md
+│   ├── 🧠 Complete-LLM-Architecture.md
+│   ├── 🎓 Complete-Training-Pipeline.md
+│   ├── 🚀 Complete-Inference-Pipeline.md
+│   ├── 🔄 Complete-Data-Flow.md
+│   ├── 🆚 Training-vs-Inference.md
+│   ├── 📝 Text-to-Tokens.md
+│   ├── 🔢 Tokens-to-Representation.md
+│   ├── 🧩 Representation-to-Transformer.md
+│   ├── 🎯 Transformer-to-Prediction.md
+│   ├── ✨ Prediction-to-Generated-Text.md
+│   └── 🏗️ LLM-From-Zero.md
 │
 └── 📄 README.md
+```
+
+> 💡 Each folder represents one major stage of the learning process, while each Markdown file focuses on a specific concept.
 
 ---
 
-01️⃣ Introduction to LLMs
+# 01️⃣ Introduction to LLMs
 
-📁 "01-Introduction-to-LLMs/"
+### 📁 `01-Introduction-to-LLMs/`
 
-The journey starts with understanding what an LLM actually is.
+The journey starts with the most fundamental question:
 
-📖 Topics
+> 🧠 **What exactly is an LLM?**
 
-- 🧠 What is an LLM?
-- 📚 What is a Language Model?
-- ❓ Why do we need LLMs?
-- ⚙️ How do LLMs work at a high level?
-- 🆚 LLM vs Traditional Language Models
-- 🆚 LLM vs NLP
-- 🆚 LLM vs Generative AI
-- 🆚 LLM vs Chatbot
-- 🆚 Small Language Models vs Large Language Models
-- 🏛️ Foundation Models
-- 🤖 What is GPT?
-- ⚡ Capabilities of LLMs
-- ⚠️ Limitations of LLMs
+### 📚 Topics
 
-🎯 Objective
+* 🧠 What is an LLM?
+* 📚 What is a Language Model?
+* ❓ Why do we need LLMs?
+* ⚙️ How do LLMs work at a high level?
+* 🆚 LLM vs Traditional Language Models
+* 🆚 LLM vs NLP
+* 🆚 LLM vs Generative AI
+* 🆚 LLM vs Chatbot
+* 📏 Small Language Models vs Large Language Models
+* 🏛️ Foundation Models
+* 🤖 What is GPT?
+* ⚡ Capabilities of LLMs
+* ⚠️ Limitations of LLMs
 
-Before learning how to build an LLM, we first understand what we are actually trying to build.
+### 🎯 Objective
+
+Build the basic mental model required to understand everything that follows.
 
 ---
 
-02️⃣ Text & Tokenization
+# 02️⃣ Text and Tokenization
 
-📁 "02-Text-and-Tokenization/"
+### 📁 `02-Text-and-Tokenization/`
 
-An LLM cannot directly process raw human text.
+An LLM cannot directly process raw human language.
 
 So the next question is:
 
-«📝 How does human language become something an LLM can process?»
+> 📝 **How does human language become something a model can process?**
 
-📖 Topics
+### 📚 Topics
 
-- 📝 How LLMs process text
-- 📚 Vocabulary
-- 🔤 What is a Token?
-- ✂️ Tokenization
-- 🔡 Character-level Tokenization
-- 📝 Word-level Tokenization
-- 🧩 Subword Tokenization
-- ⚙️ BPE (Byte Pair Encoding)
-- 🔢 Token IDs
-- 🏷️ Special Tokens
-- 📏 Sequence
-- 🪟 Context Window
-- 🔄 Text → Tokens → Model Input
+* 📝 How LLMs process text
+* 📚 Vocabulary
+* 🔤 What is a Token?
+* ✂️ Tokenization
+* 🔡 Character-Level Tokenization
+* 📝 Word-Level Tokenization
+* 🧩 Subword Tokenization
+* ⚙️ Byte Pair Encoding
+* 🔢 Token IDs
+* 🏷️ Special Tokens
+* 📏 Sequence
+* 🪟 Context Window
+* 🔄 Text to Model Input
 
-🎯 Objective
+### 🔄 Core Flow
 
-Understand how:
+```text
+📝 Human Text
+      │
+      ▼
+✂️ Tokenizer
+      │
+      ▼
+🔤 Tokens
+      │
+      ▼
+🔢 Token IDs
+      │
+      ▼
+🧠 Model Input
+```
 
-Human Text
-    ↓
-Tokenizer
-    ↓
-Tokens
-    ↓
-Token IDs
-    ↓
-Model Input
+### 🎯 Objective
+
+Understand how human language is transformed into numerical input for an LLM.
 
 ---
 
-03️⃣ LLM Architecture
+# 03️⃣ LLM Architecture
 
-📁 "03-LLM-Architecture/"
+### 📁 `03-LLM-Architecture/`
 
-Now that we know how text enters the model, we need to understand:
+Now that we understand how text enters the model, we can ask:
 
-«🏗️ What is actually inside an LLM?»
+> 🏗️ **What is actually inside an LLM?**
 
-📖 Topics
+### 📚 Topics
 
-- 🧠 What is inside an LLM?
-- 📥 Input representation
-- 🔢 Embeddings
-- 📍 Positional Information
-- 🧩 Model Blocks
-- 👀 Attention
-- 🧠 Feed-Forward Network
-- 📤 Output Layer
-- 🔄 How the components connect
-- 🏗️ High-level LLM architecture
+* 🧠 What is inside an LLM?
+* 📥 Input Representation
+* 🔢 Token Embeddings
+* 📍 Positional Information
+* 🧩 Transformer Blocks
+* 👀 Attention
+* 🧠 Feed-Forward Network
+* 📤 Output Layer
+* 🔄 How the Components Connect
+* 🏗️ High-Level LLM Architecture
 
-🎯 Objective
+### 🧭 Architecture Overview
 
-Build a mental blueprint of an LLM:
-
+```text
 📝 Text
-   ↓
+   │
+   ▼
 🔤 Tokenization
-   ↓
-🔢 Token Representation
-   ↓
+   │
+   ▼
+🔢 Token IDs
+   │
+   ▼
+🔢 Embeddings
+   │
+   ▼
+📍 Positional Information
+   │
+   ▼
 🧩 Transformer Blocks
-   ↓
+   │
+   ▼
 📤 Output
-   ↓
+   │
+   ▼
 🎯 Next Token
+```
 
-This section gives the big picture before going deep into the Transformer.
+### 🎯 Objective
 
----
-
-04️⃣ Transformer
-
-📁 "04-Transformer/"
-
-🔥 This is one of the core sections of the repository.
-
-Here we go deep into the architecture that made modern LLMs possible.
-
-📖 Topics
-
-- ❓ Why Transformer?
-- 🏗️ Transformer Architecture Overview
-- 👀 Attention Mechanism
-- 🔍 Self-Attention
-- 🔑 Query, Key & Value
-- 🎯 Attention Scores
-- 🎭 Attention Mask
-- 🧠 Multi-Head Attention
-- 📍 Positional Information
-- 🧮 Feed-Forward Network
-- ➕ Residual Connections
-- 📏 Layer Normalization
-- 🧩 Transformer Block
-- 📥 Encoder
-- 📤 Decoder
-- 🔄 Encoder-Decoder Architecture
-- 🏗️ Complete Transformer Architecture
-
-🎯 Objective
-
-Understand how individual components combine to form a Transformer block, and how Transformer blocks form the larger architecture.
-
-          Transformer
-               │
-      ┌────────┴────────┐
-      │                 │
- Attention          Feed Forward
-      │                 │
-      └────────┬────────┘
-               ↓
-      Residual Connections
-               ↓
-        Layer Normalization
-               ↓
-       🧩 Transformer Block
+Create a complete high-level blueprint of an LLM before studying its components in depth.
 
 ---
 
-05️⃣ Decoder-Only Transformer
+# 04️⃣ Transformer
 
-📁 "05-Decoder-Only-Transformer/"
+### 📁 `04-Transformer/`
 
-Now we answer the most important question:
+🔥 The Transformer is the architectural foundation behind modern LLMs.
 
-«🤖 How is a Transformer used to build a GPT-style LLM?»
+This section goes deeper into the individual components that make up the Transformer.
 
-📖 Topics
+### 📚 Topics
 
-- 🆚 Encoder vs Decoder
-- ❓ Why Decoder-Only Architecture?
-- 👀 Causal Self-Attention
-- 🎭 Causal Masking
-- 🧩 Decoder-Only Architecture
-- 🏗️ Transformer Block inside an LLM
-- 🔄 Stacking Transformer Blocks
-- 📤 Final Output
-- 🧠 Language Modeling Head
-- 🤖 Complete GPT-style Architecture
+* ❓ Why Transformers?
+* 🏗️ Transformer Architecture
+* 👀 Attention Mechanism
+* 🔍 Self-Attention
+* 🔑 Query, Key, and Value
+* 🎯 Attention Scores
+* 🎭 Attention Masking
+* 🧠 Multi-Head Attention
+* 📍 Positional Information
+* 🧮 Feed-Forward Network
+* ➕ Residual Connections
+* 📏 Layer Normalization
+* 🧩 Transformer Block
+* 📥 Encoder
+* 📤 Decoder
+* 🔄 Encoder-Decoder Architecture
+* 🏗️ Complete Transformer
 
-🎯 Objective
+### 🧩 Transformer Block
 
-Move from:
+```text
+             🧩 Transformer Block
+                      │
+                      ▼
+             👀 Self-Attention
+                      │
+                      ▼
+              ➕ Residual Connection
+                      │
+                      ▼
+               📏 Layer Norm
+                      │
+                      ▼
+             🧠 Feed-Forward Network
+                      │
+                      ▼
+              ➕ Residual Connection
+                      │
+                      ▼
+               📏 Layer Norm
+                      │
+                      ▼
+                   📤 Output
+```
 
-🤖 Transformer
+### 🎯 Objective
 
-to:
-
-🧠 Decoder-Only Transformer
-            ↓
-       GPT-style LLM
-
-This section connects the Transformer architecture with an actual LLM architecture.
+Understand how individual components combine to create a Transformer block and how multiple blocks form a Transformer architecture.
 
 ---
 
-06️⃣ Training an LLM
+# 05️⃣ Decoder-Only Transformer
 
-📁 "06-Training-an-LLM/"
+### 📁 `05-Decoder-Only-Transformer/`
 
-Now we have an architecture.
+Now we connect the general Transformer architecture to GPT-style language models.
 
-But an untrained LLM knows nothing.
+The key question is:
 
-So the next question is:
+> 🤖 **How does a Transformer become a decoder-only LLM?**
 
-«🎓 How does the LLM learn language?»
+### 📚 Topics
 
-📖 Topics
+* 🆚 Encoder vs Decoder
+* ❓ Why Decoder-Only Architecture?
+* 👀 Causal Self-Attention
+* 🎭 Causal Masking
+* 🧩 Decoder-Only Architecture
+* 🏗️ Transformer Block Inside an LLM
+* 🔄 Stacking Transformer Blocks
+* 📤 Final Output
+* 🧠 Language Modeling Head
+* 🤖 GPT-Style Architecture
 
-- 📚 What does an LLM learn?
-- 🗂️ Training Data
-- 🧹 Preparing Training Data
-- 🔤 Tokenizing Training Data
-- 🧩 Creating Training Sequences
-- ↔️ Input and Target
-- 🎯 Next-Token Prediction
-- ▶️ Forward Pass
-- 📉 Loss
-- 🔄 Backpropagation
-- ⚙️ Optimizer
-- 🔧 Parameter Updates
-- 📦 Batches
-- 🔁 Training Iterations
-- 📊 Validation
-- 🔄 Complete Training Process
+### 🏗️ GPT-Style Architecture
 
-🎯 Objective
+```text
+📝 Input Text
+      │
+      ▼
+✂️ Tokenizer
+      │
+      ▼
+🔢 Token IDs
+      │
+      ▼
+🔢 Token Embeddings
+      │
+      ▼
+📍 Positional Information
+      │
+      ▼
+┌─────────────────────┐
+│ 🧩 Transformer Block │
+└─────────────────────┘
+      │
+      ▼
+┌─────────────────────┐
+│ 🧩 Transformer Block │
+└─────────────────────┘
+      │
+      ▼
+┌─────────────────────┐
+│ 🧩 Transformer Block │
+└─────────────────────┘
+      │
+      ▼
+       ...
+      │
+      ▼
+🧠 Language Modeling Head
+      │
+      ▼
+📊 Logits
+      │
+      ▼
+🎯 Next Token
+```
 
-Understand the complete learning process:
+### 🎯 Objective
 
+Understand how a decoder-only Transformer forms the core architecture of GPT-style LLMs.
+
+---
+
+# 06️⃣ Training an LLM
+
+### 📁 `06-Training-an-LLM/`
+
+An architecture alone does not understand language.
+
+The model must learn patterns from training data.
+
+The central learning task is:
+
+> 🎯 **Predict the next token.**
+
+### 📚 Topics
+
+* 🧠 What Does an LLM Learn?
+* 📚 Training Data
+* 🧹 Data Preparation
+* 🔤 Training Data Tokenization
+* 🧩 Training Sequences
+* ↔️ Input and Target
+* 🎯 Next-Token Prediction
+* ▶️ Forward Pass
+* 📉 Loss
+* 🔄 Backpropagation
+* ⚙️ Optimizer
+* 🔧 Parameter Updates
+* 📦 Batches
+* 🔁 Training Iterations
+* 📊 Validation
+* 🏁 Complete Training Process
+
+### 🔄 Training Pipeline
+
+```text
 📚 Training Data
-      ↓
+       │
+       ▼
+🧹 Data Preparation
+       │
+       ▼
 🔤 Tokenization
-      ↓
-🧩 Input + Target
-      ↓
+       │
+       ▼
+🧩 Training Sequences
+       │
+       ▼
+↔️ Input + Target
+       │
+       ▼
 🧠 LLM
-      ↓
+       │
+       ▼
 🎯 Prediction
-      ↓
+       │
+       ▼
 📉 Loss
-      ↓
+       │
+       ▼
 🔄 Backpropagation
-      ↓
-⚙️ Parameter Update
-      ↓
+       │
+       ▼
+⚙️ Optimizer
+       │
+       ▼
+🔧 Parameter Update
+       │
+       ▼
 🔁 Repeat
+       │
+       ▼
+🧠 Trained LLM
+```
+
+### 🎯 Objective
+
+Understand how an untrained Transformer learns language patterns through repeated next-token prediction and parameter updates.
 
 ---
 
-07️⃣ Text Generation
+# 07️⃣ Text Generation
 
-📁 "07-Text-Generation/"
+### 📁 `07-Text-Generation/`
 
 The model has now been trained.
 
-But how does it actually generate an answer?
+But how does it actually generate text?
 
-«✨ How does an LLM generate text one token at a time?»
+> ✨ **How does an LLM generate one token at a time?**
 
-📖 Topics
+### 📚 Topics
 
-- 🚀 Inference
-- 📝 Prompt → Tokens
-- 🧠 Forward Pass during Inference
-- 📊 Logits
-- 🎯 Probability Distribution
-- 🔮 Next-Token Prediction
-- 🔄 Autoregressive Generation
-- 🥇 Greedy Decoding
-- 🌡️ Temperature
-- 🔝 Top-K Sampling
-- 🫧 Top-P Sampling
-- 🛑 Stopping Generation
-- ✨ Complete Text Generation Process
+* 🚀 Inference
+* 📝 Prompt to Tokens
+* 🧠 Forward Pass During Inference
+* 📊 Logits
+* 🎯 Probability Distribution
+* 🔮 Next-Token Prediction
+* 🔄 Autoregressive Generation
+* 🥇 Greedy Decoding
+* 🌡️ Temperature
+* 🔝 Top-K Sampling
+* 🫧 Top-P Sampling
+* 🛑 Stopping Generation
+* ✨ Complete Text Generation Process
 
-🎯 Objective
+### ✨ Generation Pipeline
 
-Understand:
-
+```text
 📝 Prompt
-   ↓
-🔤 Tokens
-   ↓
-🧠 LLM
-   ↓
-🎯 Next Token
-   ↓
+    │
+    ▼
+🔤 Tokenization
+    │
+    ▼
+🔢 Token IDs
+    │
+    ▼
+🧠 Decoder-Only LLM
+    │
+    ▼
+📊 Logits
+    │
+    ▼
+🎯 Probability Distribution
+    │
+    ▼
+🔮 Select Next Token
+    │
+    ▼
 ➕ Add Token
-   ↓
-🧠 LLM Again
-   ↓
-🎯 Next Token
-   ↓
+    │
+    ▼
+🧠 Run Model Again
+    │
+    ▼
+🔮 Select Next Token
+    │
+    ▼
 🔄 Repeat
-   ↓
+    │
+    ▼
 ✨ Generated Text
+```
+
+### 🎯 Objective
+
+Understand autoregressive text generation and how decoding strategies influence the generated output.
 
 ---
 
-08️⃣ Complete LLM
+# 08️⃣ Complete LLM
 
-📁 "08-Complete-LLM/"
+### 📁 `08-Complete-LLM/`
 
-🏁 The final section combines everything learned throughout the repository.
+🏁 This is where everything comes together.
 
-📖 Topics
+The final section connects the complete architecture, training pipeline, inference process, and data flow.
 
-- 🧠 Complete LLM Architecture
-- 🎓 Complete Training Pipeline
-- 🚀 Complete Inference Pipeline
-- 🔄 Complete Data Flow
-- 🆚 Training vs Inference
-- 📝 Text → Tokens
-- 🔢 Tokens → Model Representation
-- 🧩 Representation → Transformer
-- 🎯 Transformer → Prediction
-- ✨ Prediction → Generated Text
-- 🏗️ Complete LLM From Zero
+### 📚 Topics
 
-🎯 Final Flow
+* 🧠 Complete LLM Architecture
+* 🎓 Complete Training Pipeline
+* 🚀 Complete Inference Pipeline
+* 🔄 Complete Data Flow
+* 🆚 Training vs Inference
+* 📝 Text to Tokens
+* 🔢 Tokens to Representation
+* 🧩 Representation to Transformer
+* 🎯 Transformer to Prediction
+* ✨ Prediction to Generated Text
+* 🏗️ Complete LLM From Zero
 
+---
+
+# 🔄 Complete LLM Flow
+
+```text
                          🧠 LLM
                            │
               ┌────────────┴────────────┐
               │                         │
-          🎓 TRAINING              🚀 INFERENCE
+              ▼                         ▼
+        🎓 TRAINING                🚀 INFERENCE
               │                         │
-              ↓                         ↓
-        📚 Training Data             📝 Prompt
-              ↓                         ↓
-        🔤 Tokenization            🔤 Tokenization
-              ↓                         ↓
-        🔢 Token IDs               🔢 Token IDs
-              ↓                         ↓
-        🧩 Model Input             🧩 Model Input
-              ↓                         ↓
-     🤖 Decoder-Only LLM      🤖 Decoder-Only LLM
-              ↓                         ↓
-        🎯 Prediction             🎯 Next Token
-              ↓                         ↓
-           📉 Loss                🔄 Repeat
-              ↓                         ↓
-      🔄 Backpropagation          ✨ Response
-              ↓
-       ⚙️ Parameter Update
-              ↓
-          🧠 Trained LLM
+              ▼                         ▼
+       📚 Training Data              📝 Prompt
+              │                         │
+              ▼                         ▼
+       🔤 Tokenization             🔤 Tokenization
+              │                         │
+              ▼                         ▼
+        🔢 Token IDs                🔢 Token IDs
+              │                         │
+              ▼                         ▼
+       🧩 Model Input              🧩 Model Input
+              │                         │
+              ▼                         ▼
+      🤖 Decoder-Only LLM       🤖 Decoder-Only LLM
+              │                         │
+              ▼                         ▼
+        🎯 Prediction              🎯 Next Token
+              │                         │
+              ▼                         ▼
+           📉 Loss                 ➕ Add Token
+              │                         │
+              ▼                         │
+      🔄 Backpropagation              │
+              │                         │
+              ▼                         │
+      ⚙️ Parameter Update             │
+              │                         │
+              ▼                         │
+        🧠 Trained LLM               🔄 Repeat
+              │                         │
+              └────────────┬────────────┘
+                           ▼
+                    ✨ Generated Text
+```
 
 ---
 
-🗺️ Complete Learning Path
+# 🗺️ Complete Learning Path
 
-The repository follows this exact order:
+The entire repository follows a deliberate progression.
 
+```text
 01️⃣ Introduction to LLMs
-          ↓
-02️⃣ Text & Tokenization
-          ↓
+              │
+              ▼
+02️⃣ Text and Tokenization
+              │
+              ▼
 03️⃣ LLM Architecture
-          ↓
+              │
+              ▼
 04️⃣ Transformer
-          ↓
+              │
+              ▼
 05️⃣ Decoder-Only Transformer
-          ↓
+              │
+              ▼
 06️⃣ Training an LLM
-          ↓
+              │
+              ▼
 07️⃣ Text Generation
-          ↓
+              │
+              ▼
 08️⃣ Complete LLM
+```
 
-Each stage depends on the previous stage.
+Each stage depends on the concepts introduced before it.
 
-The idea is not to memorize isolated concepts, but to gradually construct the complete picture.
+The purpose is not to memorize isolated definitions.
 
----
-
-🚫 What This Repository Does NOT Cover
-
-This repository intentionally does not focus on topics outside the core process of understanding and building a basic Transformer-based LLM.
-
-❌ RAG
-❌ AI Agents
-❌ Tool Calling
-❌ Vector Databases
-❌ Embedding Search Systems
-❌ Chatbot Development
-❌ LLM Applications
-❌ Prompt Engineering
-❌ Deployment
-❌ APIs
-❌ LangChain
-❌ LangGraph
-❌ Production Infrastructure
-❌ Cloud Deployment
-❌ UI/Frontend Development
-
-These are LLM applications or surrounding technologies, not part of the core objective of this repository.
+The purpose is to gradually build one connected mental model.
 
 ---
 
-📐 Mathematics
+# 🚫 What This Repository Does Not Cover
 
-📌 Mathematical details are intentionally kept separate from the initial conceptual structure.
+This project intentionally stays focused on the **core construction and understanding of a Transformer-based LLM**.
 
-The primary focus of the current version is:
+The following topics are outside the current scope:
 
-🧠 Concept → Architecture → Data Flow → Training → Generation
+* 🚫 RAG
+* 🚫 AI Agents
+* 🚫 Tool Calling
+* 🚫 Vector Databases
+* 🚫 Embedding Search Systems
+* 🚫 Chatbot Development
+* 🚫 LLM Applications
+* 🚫 Prompt Engineering
+* 🚫 Deployment
+* 🚫 APIs
+* 🚫 LangChain
+* 🚫 LangGraph
+* 🚫 Production Infrastructure
+* 🚫 Cloud Deployment
+* 🚫 UI and Frontend Development
 
-Detailed mathematical derivations can be added later as the repository evolves.
+These technologies are part of the broader LLM ecosystem, but they are not required for understanding the fundamental construction of a Transformer-based LLM.
 
 ---
 
-💻 Coding Status
+# 📐 Mathematics
 
-🚧 Current Version
+Mathematics is intentionally kept separate from the initial conceptual structure.
 
-«📚 THEORY ONLY»
+The primary learning path focuses on:
 
-At the moment, this repository focuses on understanding the concepts and architecture without implementation code.
+```text
+🧠 Concept
+    │
+    ▼
+🏗️ Architecture
+    │
+    ▼
+🔄 Data Flow
+    │
+    ▼
+🎓 Training
+    │
+    ▼
+✨ Generation
+```
 
-🔜 Coming Soon
+Detailed mathematical derivations can be introduced later.
 
-The future implementation phase will gradually add:
+Potential future topics include:
 
+* 📐 Vector Representations
+* 🔢 Matrix Operations
+* ✖️ Dot Products
+* 👀 Attention Calculations
+* 📊 Softmax
+* 📉 Cross-Entropy Loss
+* 📈 Gradient Descent
+* 🔄 Backpropagation
+* ⚙️ Parameter Updates
+
+---
+
+# 💻 Implementation Status
+
+## 🚧 Current Version
+
+The current repository is **theory-focused**.
+
+```text
 📚 Theory
-   ↓
+   │
+   ▼
+🏗️ Architecture
+   │
+   ▼
+🔄 Data Flow
+```
+
+There is currently no complete implementation.
+
+---
+
+## 🔜 Future Implementation
+
+The implementation phase will follow the same conceptual progression.
+
+```text
+📚 Theory
+    │
+    ▼
 🧪 Small Experiments
-   ↓
-💻 Component Implementation
-   ↓
-🧩 Transformer Implementation
-   ↓
-🤖 LLM Implementation
-   ↓
+    │
+    ▼
+🔬 Component Implementation
+    │
+    ▼
+👀 Attention Implementation
+    │
+    ▼
+🤖 Transformer Implementation
+    │
+    ▼
+🧩 Decoder-Only LLM
+    │
+    ▼
 🎓 Training
-   ↓
+    │
+    ▼
 ✨ Text Generation
+```
 
-The implementation will follow the same architecture and concepts documented in the theoretical sections.
-
----
-
-🛠️ Future Technology Stack
-
-When the implementation phase begins, technologies may include:
-
-🐍 Python — Core implementation language
-🔢 NumPy — Numerical operations and tensor concepts
-🔥 PyTorch — Neural network and Transformer implementation
-🤗 Hugging Face — Tokenization and model ecosystem where useful
-📊 Matplotlib — Visualizing model behavior and training where useful
-
-«⚠️ The technology stack is not part of the current theoretical implementation and may evolve when coding begins.»
+The goal is to understand each component before combining everything into a complete model.
 
 ---
 
-🧭 What This Repository Will Eventually Become
+# 🛠️ Future Technology Stack
 
-The long-term goal is to evolve this repository from:
+The implementation phase may use the following technologies:
 
-📚 Theory
+| Technology          | Purpose                                       |
+| ------------------- | --------------------------------------------- |
+| 🐍 **Python**       | Core implementation                           |
+| 🔢 **NumPy**        | Numerical operations and tensor concepts      |
+| 🔥 **PyTorch**      | Neural network and Transformer implementation |
+| 🤗 **Hugging Face** | Tokenization and model ecosystem where useful |
+| 📊 **Matplotlib**   | Visualizations and experiments                |
 
-into:
+> ⚠️ The technology stack is not part of the current theoretical implementation and may evolve as the project develops.
 
-📚 Theory
-   +
-💻 Implementation
-   +
-🧪 Experiments
-   +
-📊 Visualizations
+---
 
-Eventually, the repository should make it possible to go from:
+# 🌱 What This Repository Will Become
 
+The long-term goal is to evolve the repository from a theory-first resource into a complete learning and implementation project.
+
+```text
+📚 THEORY
+    +
+💻 IMPLEMENTATION
+    +
+🧪 EXPERIMENTS
+    +
+📊 VISUALIZATIONS
+```
+
+Eventually, the repository should allow a learner to follow the complete journey:
+
+```text
 📝 Raw Text
-      ↓
+      │
+      ▼
 🔤 Tokenization
-      ↓
-🔢 Token Representation
-      ↓
+      │
+      ▼
+🔢 Token IDs
+      │
+      ▼
+🧩 Token Representation
+      │
+      ▼
 🤖 Transformer
-      ↓
-🧩 Decoder-Only Architecture
-      ↓
+      │
+      ▼
+🧠 Decoder-Only Architecture
+      │
+      ▼
 🎓 Training
-      ↓
+      │
+      ▼
 🧠 Trained LLM
-      ↓
+      │
+      ▼
 ✨ Text Generation
+```
 
 ---
 
-🚀 Vision
+# 🚀 Project Vision
 
-LLM From Zero aims to become a complete learning resource for understanding the internal construction of Transformer-based Large Language Models.
+LLM From Zero is built around one central idea:
 
-Not:
+> **Don't just use an LLM. Understand what is happening inside it.**
 
-«❌ "How to call an existing LLM API"»
+This repository is not about learning how to call an existing LLM API.
 
-But:
+It is about answering a deeper question:
 
-«✅ "How does an LLM actually work, and how can we build one from the ground up?"»
+> 🧠 **How does an LLM actually work, and how can we build one from the ground up?**
 
----
-
-⭐ Project Status
-
-Component| Status
-📚 LLM Introduction| 🟢 Available
-📝 Text & Tokenization| 🟢 Theoretical
-🏗️ LLM Architecture| 🟢 Theoretical
-🤖 Transformer| 🟢 Theoretical
-🧩 Decoder-Only Transformer| 🟢 Theoretical
-🎓 LLM Training| 🟢 Theoretical
-✨ Text Generation| 🟢 Theoretical
-🧠 Complete LLM| 🟢 Theoretical
-💻 Coding Implementation| 🟡 Coming Soon
-🧪 Experiments| 🟡 Coming Soon
-📊 Visualizations| 🟡 Coming Soon
+The project aims to break down the construction of a Transformer-based LLM into understandable stages so that the complete system can eventually be viewed as one connected pipeline.
 
 ---
 
-🌱 From Zero to LLM
+# 📊 Project Status
 
-«Understand it.
+| Component                   | Status         |
+| --------------------------- | -------------- |
+| 🧠 LLM Introduction         | 🟢 Available   |
+| 📝 Text and Tokenization    | 🟢 Theoretical |
+| 🏗️ LLM Architecture        | 🟢 Theoretical |
+| 🤖 Transformer              | 🟢 Theoretical |
+| 🧩 Decoder-Only Transformer | 🟢 Theoretical |
+| 🎓 LLM Training             | 🟢 Theoretical |
+| ✨ Text Generation           | 🟢 Theoretical |
+| 🧠 Complete LLM             | 🟢 Theoretical |
+| 💻 Coding Implementation    | 🟡 Coming Soon |
+| 🧪 Experiments              | 🟡 Coming Soon |
+| 📊 Visualizations           | 🟡 Coming Soon |
 
-Break it down.
+---
 
-Build it.
+# 🌌 From Zero to LLM
 
-Train it.
+```text
+🧠 Understand
+      │
+      ▼
+🔍 Break It Down
+      │
+      ▼
+🔗 Connect the Concepts
+      │
+      ▼
+💻 Build It
+      │
+      ▼
+🎓 Train It
+      │
+      ▼
+✨ Generate With It
+```
 
-Generate with it.»
+---
 
-🧠 LLM From Zero — Learn what is inside an LLM, how its architecture works, and how the complete system is built.
+## 🧠 LLM From Zero
+
+**Understand it. Break it down. Build it. Train it. Generate with it.**
+
+A theory-first journey into the internal construction of Transformer-based Large Language Models.
