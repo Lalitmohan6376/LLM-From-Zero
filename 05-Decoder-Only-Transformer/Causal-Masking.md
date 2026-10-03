@@ -1,4 +1,4 @@
-# 🎭 Causal Maskings
+# 🎭 Causal Masking
 
 **Causal Masking** is a technique used in decoder-only Transformers to prevent a token from attending to **future tokens**.
 
