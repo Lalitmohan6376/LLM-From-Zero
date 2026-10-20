@@ -5,7 +5,7 @@
 > **From raw text to a complete Transformer-based LLM**
 
 **📚 Current Status:** Theory Only
-**💻 Implementation:** Coming Soon
+**💻 Implementation:** Coming Soons
 
 ---
 
