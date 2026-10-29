@@ -1,4 +1,4 @@
-# 🧠 LLM From Zero
+# 🧠 LLM From Zeross
 
 ### Understand How a Large Language Model Is Built
 
